@@ -42,6 +42,36 @@ describe("tree", () => {
     });
   });
 
+  it("basic with tab", () => {
+    const src = `title 1
+	indent 1-a
+		indent 2-a
+`;
+
+    expect(tree(src)).toStrictEqual({
+      root: true,
+      subtree: [
+        {
+          value: "title 1",
+          depth: 0,
+          subtree: [
+            {
+              value: "indent 1-a",
+              depth: 1,
+              subtree: [
+                {
+                  value: "indent 2-a",
+                  depth: 2,
+                  subtree: [],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    });
+  });
+
   it.skip("advanced", () => {
     const src = `title 1
     indent 1-a
