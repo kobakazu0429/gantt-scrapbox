@@ -15,16 +15,14 @@ export type Root = {
 export const tree = (src: string): Root => {
   const lines = src.split("\n");
 
-  const subtree: Node[] = [];
-  let depth = 0;
-
   const tree: Root = {
     root: true,
-    subtree,
+    subtree: [],
   };
 
-  let branch = subtree;
+  let branch = tree.subtree;
   let lastBranch: Node[];
+  let depth = 0;
 
   const first = lines[0].match(INDENT_REGEX)?.[0].length ?? 0;
 
@@ -45,6 +43,9 @@ export const tree = (src: string): Root => {
     const isNewSection = indent === 0 && indent < prev;
     if (isNewSection) {
       indent = prev;
+
+      branch = tree.subtree;
+      depth = 0;
     }
 
     if (indent === prev /* same depth */) {
