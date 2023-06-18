@@ -1,0 +1,19 @@
+{
+  "name": "gantt-scrapbox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/kobakazu0429/gantt-scrapbox.git",
+  "author": "kobakazu0429 <kobakazu10@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest"
+  },
+  "dependencies": {
+    "typescript": "^5.1.3",
+    "ulid": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "vitest": "^0.32.2"
+  }
+}
